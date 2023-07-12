@@ -6,11 +6,51 @@
  * @param {number} length La taille que doit faire le mots de passe.
  * @returns Un mot de passe sécurisé
  */
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 function generatePassword(length) {
-  let pass = 'Not working yet';
+  let pass = ""
 
+  for (let i=0;i<length;i++){
+    let n = getRandomInt(5)
+if (n==0){
+  n+=1
+} 
+   
+if(n==1){
+  if(shouldIncludeLowerCase()===true){
+    pass += randomLowerCase();
+      }else{n+=1}
+}
+
+else if(n==2){
+  if(shouldIncludeUpperCase()===true)
+    {pass += randomUpperCase()
+      }else{n+=1}
+}
+
+else if(n==3){
+  if(shouldIncludeNumbers()===true){
+    pass += randomNumber()
+      }else{n+=1}
+}
+
+else if(n==4){
+  if(shouldIncludeSymbols()===true ){
+    pass += randomSymbol()
+      }else{n-=3}
+}
+
+}
   return pass;
 }
+
+
+
+
+
+
 
 /**----------------------------------- */
 /**----------------------------------- */
